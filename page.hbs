@@ -1,7 +1,7 @@
 {{!< default}}
 
-{{! This is a page template. A page outputs content just like any other post, and has all the same
-    attributes by default, but you can also customise it to behave differently if you prefer. }}
+{{!-- This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. --}}
 
 <article class="{{post_class}}">
 
@@ -21,7 +21,7 @@
 
         <footer class="post-footer">
 
-            {{! Everything inside the #author tags pulls data from the author }}
+            {{!-- Everything inside the #author tags pulls data from the author --}}
             {{#author}}
 
                 {{#if image}}
@@ -67,6 +67,7 @@
         </footer>
 
         <section class="post-comments">
+        {{#if published_at}}
             <div id="disqus_thread"></div>
             <script type="text/javascript">
                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -81,6 +82,11 @@
             </script>
             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        {{else}}
+            <div class="comments-disabled">
+                <p>Comments are disabled for page previews.</p>
+            </div>
+        {{/if}}
         </section>
 
     {{/post}}
